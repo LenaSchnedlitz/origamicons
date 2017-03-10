@@ -1,10 +1,11 @@
 def hex_to_bin(sha_hash):
+    """Convert SHA-1 hash to binary and return result as a string."""
     length = 160  # hash length * bits per hex number
-    bin_string = str(bin(int(sha_hash, 16))[2:].zfill(length))
-    return [bin_string[i:i + 4] for i in range(0, length - 2)]
+    return str(bin(int(sha_hash, 16))[2:].zfill(length))
 
 
 def sha1_hash(username):
+    """Return (hexadecimal) SHA-1 hash of passed username."""
     from hashlib import sha1
     sha = sha1()
     sha.update(str.encode(username))
@@ -12,6 +13,7 @@ def sha1_hash(username):
 
 
 def split_position():
+    """Arbitrary algorithm"""
     distances = [2] * 22 + [3] * 38
     i = 0
     while distances:
@@ -20,8 +22,10 @@ def split_position():
 
 
 def split_for_drawing(bin_hash):
+    """Split binary (str) hash into 61 parts of length 4."""
+    parts = [bin_hash[i:i + 4] for i in range(0, len(bin_hash) - 2)]
     indices = split_position()
-    return [bin_hash[i] for i in indices]
+    return [parts[i] for i in indices]
 
 
 name_hash = sha1_hash("mailea")
