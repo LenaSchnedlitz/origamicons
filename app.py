@@ -84,13 +84,12 @@ def draw_dots():
     img = Image.new('RGBA', (250, 250), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     r = 9
+    s = 8
     fill, border = calculate_dot_positions()
-    for i in range(len(fill)):
-        x, y = fill[i]
+    for i, (x, y) in enumerate(fill):
         draw.ellipse((x - r, y - r, x + r, y + r), fill=(255, 0, 0, 0))
-    for i in range(len(border)):
-        x, y = border[i]
-        draw.ellipse((x - r, y - r, x + r, y + r), fill=(255, 255, 0, 0))
+    for i, (x, y) in enumerate(border):
+        draw.ellipse((x - s, y - s, x + s, y + s), fill=(255, 255, 0, 0))
     img.show()
 
 
