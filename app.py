@@ -1,6 +1,3 @@
-DOTS = 61  # number of drawn 'dots' in image
-
-
 def sha1_hash(username):
     """Return SHA-1 hash of passed username as string of zeros and ones."""
 
@@ -12,59 +9,92 @@ def sha1_hash(username):
     from hashlib import sha1
     sha = sha1()
     sha.update(str.encode(username))
-    return hex_to_bin(sha.hexdigest())
+    hex_hash = sha.hexdigest()
+    return hex_to_bin(hex_hash)
 
 
-def split(string, position):
-    """Split string at given position, return both parts."""
-    return string[:position], string[position:]
+def extract_data(bin_hash):
+    """Create data dictionary from hash string of length 160.
+
+    Details:
+    Duplicate the hash (new length: 320).
+    0 - 305: DOT_DATA, 61 Strings of length 5.
+    305 - 310: PALETTE.
+    310 - 312 BG.
+    312 - 314 SHAPE.
+    Last 6 characters are currently not used.
+    """
+    bin_hash *= 2
+    extracted_data = {}
+    dot_string = bin_hash[0:305]
+    dot_list = [dot_string[i:i + 5] for i in range(0, len(dot_string), 5)]
+
+    extracted_data["DOT_DATA"] = dot_list
+    extracted_data["PALETTE"] = bin_hash[305:310]
+    extracted_data["BG"] = bin_hash[310:312]
+    extracted_data["SHAPE"] = bin_hash[312:314]
+
+    return extracted_data
 
 
-def get_dot_indices(margin=8, size=250):
-    """Create tuples that 'draw' a circle."""
-    shape = ((0, 0, 0, 1, 1, 1, 0, 0, 0),
-             (0, 1, 1, 1, 1, 1, 1, 1, 0),
-             (0, 1, 1, 1, 1, 1, 1, 1, 0),
-             (1, 1, 1, 1, 1, 1, 1, 1, 1),
-             (1, 1, 1, 1, 1, 1, 1, 1, 1),
-             (1, 1, 1, 1, 1, 1, 1, 1, 1),
-             (0, 1, 1, 1, 1, 1, 1, 1, 0),
-             (0, 1, 1, 1, 1, 1, 1, 1, 0),
-             (0, 0, 0, 1, 1, 1, 0, 0, 0))
+def calculate_dot_positions(margin=8, size=250):
+    """Map shapes to canvas size. Return coordinate tuples."""
 
-    distance = (size - 2 * margin) // len(shape)
-    coords = [margin + distance // 2 + i * distance for i in range(len(shape))]
+    def map_tuples(shape, coordinates):
+        """Map shape of 1s to coordinate system."""
+        tuples = []
+        for i, row in enumerate(shape):
+            for j, cell in enumerate(row):
+                if cell:
+                    tuples.append((coordinates[i], coordinates[j]))
+        return tuples
 
-    tuples = []
-    for i, row in enumerate(shape):
-        for j, cell in enumerate(row):
-            if cell:
-                tuples.append((coords[i], coords[j]))
+    fill_shape = ((0, 0, 0, 0, 0, 0, 0, 0, 0),
+                  (0, 0, 0, 1, 1, 1, 0, 0, 0),
+                  (0, 0, 1, 1, 1, 1, 1, 0, 0),
+                  (0, 1, 1, 1, 1, 1, 1, 1, 0),
+                  (0, 1, 1, 1, 1, 1, 1, 1, 0),
+                  (0, 1, 1, 1, 1, 1, 1, 1, 0),
+                  (0, 0, 1, 1, 1, 1, 1, 0, 0),
+                  (0, 0, 0, 1, 1, 1, 0, 0, 0),
+                  (0, 0, 0, 0, 0, 0, 0, 0, 0))
 
-    return tuples
+    border_shape = ((0, 0, 0, 1, 1, 1, 0, 0, 0),
+                    (0, 1, 1, 0, 0, 0, 1, 1, 0),
+                    (0, 1, 0, 0, 0, 0, 0, 1, 0),
+                    (1, 0, 0, 0, 0, 0, 0, 0, 1),
+                    (1, 0, 0, 0, 0, 0, 0, 0, 1),
+                    (1, 0, 0, 0, 0, 0, 0, 0, 1),
+                    (0, 1, 0, 0, 0, 0, 0, 1, 0),
+                    (0, 1, 1, 0, 0, 0, 1, 1, 0),
+                    (0, 0, 0, 1, 1, 1, 0, 0, 0))
+
+    resolution = len(fill_shape)
+    distance = (size - 2 * margin) // resolution
+    coords = [margin + distance // 2 + i * distance for i in range(resolution)]
+
+    fill_tuples = map_tuples(fill_shape, coords)
+    border_tuples = map_tuples(border_shape, coords)
+
+    return fill_tuples, border_tuples
 
 
-def draw_dots(hash_parts):
+def draw_dots():
     from PIL import Image, ImageDraw
     img = Image.new('RGBA', (250, 250), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     r = 9
-    tuples = get_dot_indices()
-    for i in range(len(tuples)):
-        x, y = tuples[i]
-        draw.ellipse((x - r, y - r, x + r, y + r),
-                     fill=(255, 0, 0, 0))
+    fill, border = calculate_dot_positions()
+    for i in range(len(fill)):
+        x, y = fill[i]
+        draw.ellipse((x - r, y - r, x + r, y + r), fill=(255, 0, 0, 0))
+    for i in range(len(border)):
+        x, y = border[i]
+        draw.ellipse((x - r, y - r, x + r, y + r), fill=(255, 255, 0, 0))
+    img.show()
 
 
 name_hash = sha1_hash("mailea")
-img_hash = name_hash * 2
+data = extract_data(name_hash)
 
-dot_data, img_hash = split(img_hash, 5 * DOTS)
-dot_data = [dot_data[i:i + 5] for i in range(0, len(dot_data), 5)]
-
-palette, img_hash = split(img_hash, 5)
-bg, img_hash = split(img_hash, 2)
-shape, img_hash = split(img_hash, 2)
-
-draw_dots(dot_data)
-
+draw_dots()
