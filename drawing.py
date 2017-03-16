@@ -26,14 +26,13 @@ def draw_dots():
     from PIL import Image, ImageDraw
     img = Image.new('RGBA', (250, 250), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    r1 = 9
-    r2 = 8
+    rf = 9
+    rb = 8
     fill, border = calculate_dot_positions()
     for i, (x, y) in enumerate(fill):
-        draw.ellipse((x - r1, y - r1, x + r1, y + r1), fill=(255, 0, 0, 0))
+        draw.ellipse((x - rf, y - rf, x + rf, y + rf), fill=(255, 0, 0, 0))
     for i, (x, y) in enumerate(border):
-        draw.ellipse((x - r2, y - r2, x + r2, y + r2), fill=(255, 255, 0, 0))
-    img.show()
+        draw.ellipse((x - rb, y - rb, x + rb, y + rb), fill=(255, 255, 0, 0))
 
 
 def draw_image(data):

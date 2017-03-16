@@ -1,16 +1,12 @@
 def sha1_hash(username):
     """Return SHA-1 hash of passed username as string of zeros and ones."""
-
-    def hex_to_bin(sha_hash):
-        """Convert SHA-1 (hex) hash to binary number string."""
-        length = 160  # hash length * bits per hex number
-        return str(bin(int(sha_hash, 16))[2:].zfill(length))
-
     from hashlib import sha1
+    import utilities as u
     sha = sha1()
     sha.update(str.encode(username))
     hex_hash = sha.hexdigest()
-    return hex_to_bin(hex_hash)
+    bin_hash = u.hex_to_bin(hex_hash)
+    return bin_hash
 
 
 def extract_data(bin_hash):
