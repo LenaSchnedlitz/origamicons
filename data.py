@@ -18,37 +18,31 @@ BORDER_SHAPE = ((0, 0, 0, 1, 1, 1, 0, 0, 0),
                 (0, 1, 1, 0, 0, 0, 1, 1, 0),
                 (0, 0, 0, 1, 1, 1, 0, 0, 0))
 
-COLORS = {
-    "00000": 1,
-    "00001": 1,
-    "00010": 1,
-    "00011": 1,
-    "00100": 1,
-    "00101": 1,
-    "00110": 1,
-    "00111": 1,
-    "01000": 1,
-    "01001": 1,
-    "01010": 1,
-    "01011": 1,
-    "01100": 1,
-    "01101": 1,
-    "01110": 1,
-    "01111": 1,
-    "10000": 1,
-    "10001": 1,
-    "10010": 1,
-    "10011": 1,
-    "10100": 1,
-    "10101": 1,
-    "10110": 1,
-    "10111": 1,
-    "11000": 1,
-    "11001": 1,
-    "11010": 1,
-    "11011": 1,
-    "11100": 1,
-    "11101": 1,
-    "11110": 1,
-    "11111": 1
-}
+KEYS = ("000", "001", "010", "011", "100", "101", "110", "111")
+
+PALETTES = ()
+
+BG_PALETTES = ()
+
+
+def make_palette(data):
+    assert (len(KEYS) == len(PALETTES)), \
+        "KEYS and PALETTES must have same length"
+
+    p_index = int(data["PALETTE"], 2)
+    assert (len(KEYS) >= p_index), \
+        "KEYS and PALETTES do not meet requirements, see app.extract_data"
+
+    bg_index = int(data["BG"], 2)
+    assert (len(BG_PALETTES) >= bg_index), \
+        "BG_PALETTES does not meet requirements, see app.extract_data"
+
+    colors = PALETTES[p_index]
+    bg = BG_PALETTES[p_index][bg_index]
+
+    palette = {}
+    for i, key in enumerate(KEYS):
+        palette[key] = colors[i]
+    palette["BG"] = bg
+
+    return palette
