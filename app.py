@@ -41,9 +41,13 @@ def hex_to_triangles(hex_string):
 
 
 def calculate_color(hex_string):
-    """Convert hex color string to RGBA tuple."""
+    """Convert hex color string to RGBA tuple.
+
+    RGB-values are in range 125-200 each. A-value is 30.
+    """
     assert len(hex_string) == 3, "Invalid length."
-    return tuple((255, 1, 3, 30))
+    rgb = tuple(125 + 5 * int(digit, 16) for digit in hex_string)
+    return rgb + (30,)
 
 
 def extract_data(hex_hash):
@@ -73,7 +77,7 @@ def crop_image(img, new_size):
 def draw_avatar(data_dict):
     from PIL import Image, ImageDraw
     size = 256 * RESIZE_FACTOR
-    img = Image.new("RGB", [size] * 2, (0, 0, 0, 0))
+    img = Image.new("RGB", [size] * 2, (120, 120, 150))
     draw = ImageDraw.Draw(img, "RGBA")
 
     color = data_dict["COLOR"]
@@ -86,6 +90,6 @@ def draw_avatar(data_dict):
 
 
 if __name__ == "__main__":
-    name_hash = sha1_hash("test")
+    name_hash = sha1_hash("mailea")
     data = extract_data(name_hash)
     draw_avatar(data)
