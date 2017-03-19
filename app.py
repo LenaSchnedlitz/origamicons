@@ -50,16 +50,36 @@ def calculate_color(hex_string):
     return rgb + (30,)
 
 
+def change_hue(color, how):
+    """Change color tuple based on how-value."""
+    assert how in range(4), "How must be an integer in range(0, 4)"
+    if how == 3:
+        return tuple([value - 20 for value in color])
+    else:
+        new = list(color)
+        new[how] -= 40
+        return tuple(new)
+
+
+def calculate_gradient(hex_number, color):
+    """Use passed hex number to change color tuple in two different ways."""
+    number = int(hex_number, 16)
+    start = number // 4
+    end = number % 4
+    return [change_hue(color, start), change_hue(color, end)]
+
+
 def extract_data(hex_hash):
     """Extract coordinates, color and bg information from name hash.
 
     coordinates: first 36 characters
-    color: 36-39
-    bg: last character (39)
+    color: [36,39[
+    bg: last character (in this case 39)
     """
-    return {"COORDS": hex_to_triangles(hex_hash[:36]),
-            "COLOR": calculate_color(hex_hash[36:39]),
-            "BG": int(hex_hash[-1], 16)}
+    triangle_coords = hex_to_triangles(hex_hash[:36])
+    color = calculate_color(hex_hash[36:39])
+    background_colors = calculate_gradient(hex_hash[-1], color)
+    return {"COORDS": triangle_coords, "COLOR": color, "BG": background_colors}
 
 
 def crop_image(img, new_size):
@@ -77,10 +97,11 @@ def crop_image(img, new_size):
 def draw_avatar(data_dict):
     from PIL import Image, ImageDraw
     size = 256 * RESIZE_FACTOR
+    color = data_dict["COLOR"]
+
     img = Image.new("RGB", [size] * 2, (120, 120, 150))
     draw = ImageDraw.Draw(img, "RGBA")
 
-    color = data_dict["COLOR"]
     for triangle in data_dict["COORDS"]:
         draw.polygon(triangle, fill=color, outline=color)
 
