@@ -1,3 +1,6 @@
+RESIZE_FACTOR = 4  # high values make result images smoother
+
+
 def sha1_hash(username):
     """Return SHA-1 hash of passed username."""
     from hashlib import sha1
@@ -10,11 +13,13 @@ def hex_to_coordinates(hex_string):
     """Convert hex string to (x, y) - coordinate tuples.
 
     Two digits represent one value -> 4 digits per (x, y) tuple.
-    After the split, hex numbers are converted to decimal ints.
+    After splitting, hex numbers are converted to decimals and multiplied by
+    RESIZE_FACTOR.
     """
     hex_coordinates = [(hex_string[i:i + 2], hex_string[i + 2:i + 4])
                        for i in range(0, len(hex_string), 4)]
-    dec_coordinates = [(int(x, 16), int(y, 16)) for (x, y) in hex_coordinates]
+    dec_coordinates = [(int(x, 16) * RESIZE_FACTOR, int(y, 16) * RESIZE_FACTOR)
+                       for (x, y) in hex_coordinates]
     return dec_coordinates
 
 
@@ -67,12 +72,13 @@ def crop_image(img, new_size):
 
 def draw_avatar(data_dict):
     from PIL import Image, ImageDraw
-    size = 256
-    img = Image.new("RGB", (size, size), (0, 0, 0, 0))
+    size = 256 * RESIZE_FACTOR
+    img = Image.new("RGB", [size] * 2, (0, 0, 0, 0))
     draw = ImageDraw.Draw(img, "RGBA")
     for triangle in data_dict["COORDS"]:
         draw.polygon(triangle, fill=(255, 255, 255, 15))
-    img = crop_image(img, 270)
+    img = img.resize([size // RESIZE_FACTOR] * 2, Image.ANTIALIAS)
+    img = crop_image(img, 250)
     img.show()
 
 
