@@ -53,13 +53,26 @@ def extract_data(hex_hash):
             "BG": int(hex_hash[-1], 16)}
 
 
+def crop_image(img, new_size):
+    """Crop a square image to new size."""
+    old_size = img.size[0]
+    if (old_size - new_size) % 2:
+        margin = (old_size - new_size - 1) // 2
+        box = [margin] * 2 + [old_size - margin - 1] * 2
+    else:
+        margin = (old_size - new_size) // 2
+        box = [margin] * 2 + [old_size - margin] * 2
+    return img.crop(box)
+
+
 def draw_avatar(data_dict):
     from PIL import Image, ImageDraw
-    img_size = [256] * 2
-    img = Image.new("RGB", img_size, (0, 0, 0, 0))
+    size = 256
+    img = Image.new("RGB", (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img, "RGBA")
     for triangle in data_dict["COORDS"]:
         draw.polygon(triangle, fill=(255, 255, 255, 15))
+    img = crop_image(img, 270)
     img.show()
 
 
