@@ -94,18 +94,47 @@ def crop_image(img, new_size):
     return img.crop(box)
 
 
+def draw_gradient(img, colors):
+    """Draw round gradient. Taken from http://stackoverflow.com/a/30669765"""
+    import math as math
+    center, corner = colors
+    size = img.size[0]
+
+    for y in range(img.size[1]):
+        for x in range(size):
+            # Find the distance to the center
+            distance = math.sqrt((x - size / 2) ** 2 + (y - size / 2) ** 2)
+
+            # Make it on a scale from 0 to 1
+            distance = float(distance) / (math.sqrt(2) * size / 2)
+
+            # Calculate r, g, and b values
+            r = corner[0] * distance + center[0] * (1 - distance)
+            g = corner[1] * distance + center[1] * (1 - distance)
+            b = corner[2] * distance + center[2] * (1 - distance)
+
+            # Place the pixel
+            img.putpixel((x, y), (int(r), int(g), int(b)))
+    return img
+
+
 def draw_avatar(data_dict):
     from PIL import Image, ImageDraw
-    size = 256 * RESIZE_FACTOR
+    size = 256
     color = data_dict["COLOR"]
 
     img = Image.new("RGB", [size] * 2, (120, 120, 150))
+    img = draw_gradient(img, data_dict["BG"])
+
+    # resize to make edges smoother
+    img = img.resize([size * RESIZE_FACTOR] * 2, Image.ANTIALIAS)
     draw = ImageDraw.Draw(img, "RGBA")
 
     for triangle in data_dict["COORDS"]:
         draw.polygon(triangle, fill=color, outline=color)
 
-    img = img.resize([size // RESIZE_FACTOR] * 2, Image.ANTIALIAS)
+    # return to original size
+    img = img.resize([size] * 2, Image.ANTIALIAS)
     img = crop_image(img, 250)
     img.show()
 
