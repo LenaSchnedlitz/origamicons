@@ -41,9 +41,9 @@ def hex_to_triangles(hex_string):
 
 
 def calculate_color(hex_string):
-    """Convert hex color string to RGB tuple."""
+    """Convert hex color string to RGBA tuple."""
     assert len(hex_string) == 3, "Invalid length."
-    return tuple((255, 1, 3))
+    return tuple((255, 1, 3, 30))
 
 
 def extract_data(hex_hash):
@@ -75,14 +75,17 @@ def draw_avatar(data_dict):
     size = 256 * RESIZE_FACTOR
     img = Image.new("RGB", [size] * 2, (0, 0, 0, 0))
     draw = ImageDraw.Draw(img, "RGBA")
+
+    color = data_dict["COLOR"]
     for triangle in data_dict["COORDS"]:
-        draw.polygon(triangle, fill=(255, 255, 255, 15))
+        draw.polygon(triangle, fill=color, outline=color)
+
     img = img.resize([size // RESIZE_FACTOR] * 2, Image.ANTIALIAS)
     img = crop_image(img, 250)
     img.show()
 
 
 if __name__ == "__main__":
-    name_hash = sha1_hash("mailea")
+    name_hash = sha1_hash("test")
     data = extract_data(name_hash)
     draw_avatar(data)
