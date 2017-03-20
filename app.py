@@ -47,17 +47,17 @@ def calculate_color(hex_string):
     """
     assert len(hex_string) == 3, "Invalid length."
     rgb = tuple(125 + 5 * int(digit, 16) for digit in hex_string)
-    return rgb + (30,)
+    return rgb + (50,)
 
 
 def change_hue(color, how):
     """Change color tuple based on how-value."""
     assert how in range(4), "How must be an integer in range(0, 4)"
     if how == 3:
-        return tuple([value - 20 for value in color])
+        return tuple([value - 60 for value in color])
     else:
-        new = list(color)
-        new[how] -= 40
+        new = [value - 60 for value in color]
+        new[how] -= 20
         return tuple(new)
 
 
