@@ -10,7 +10,7 @@ def sha1_hash(username):
 
 
 def hex_to_coordinates(hex_string):
-    """Convert hex string to (x, y) - coordinate tuples.
+    """Convert hex string into (x, y) - coordinate tuples.
 
     Two digits represent one value -> 4 digits per (x, y) tuple.
     After splitting, hex numbers are converted to decimals and multiplied by
@@ -24,7 +24,7 @@ def hex_to_coordinates(hex_string):
 
 
 def coordinates_to_triangles(coordinates):
-    """Convert coordinate list to triangle coordinate lists.
+    """Convert coordinate list into triangle coordinate lists.
 
     Mechanism: Three consecutive tuples represent one triangle.
     Example: [(a, b), (c, d), (e, f), (g, h)]
@@ -34,14 +34,14 @@ def coordinates_to_triangles(coordinates):
 
 
 def hex_to_triangles(hex_string):
-    """Convert hex string to triangle coordinates."""
+    """Convert hex string into triangle coordinates."""
     assert not len(hex_string) % 4, "Invalid length - must be multiple of 4."
     coordinates = hex_to_coordinates(hex_string)
     return coordinates_to_triangles(coordinates)
 
 
 def calculate_color(hex_string):
-    """Convert hex color string to RGBA tuple.
+    """Convert hex color string into RGBA tuple.
 
     RGB-values are in range 125-200 each. A-value is 30.
     """
