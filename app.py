@@ -140,6 +140,7 @@ def draw_avatar(data_dict):
 
 
 if __name__ == "__main__":
-    name_hash = sha1_hash("mailea")
+    username = input("What's your name? \n>")
+    name_hash = sha1_hash(username)
     data = extract_data(name_hash)
     draw_avatar(data)
