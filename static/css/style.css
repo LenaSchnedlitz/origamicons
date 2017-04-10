@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext");
+
+a, body, button, div, form, html, input, li, nav, ul {
+    background-color: transparent;
+    border: 0;
+    font-family: Overpass;
+    font-size: 14pt;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+body {
+    background-color: #F1F0F0;
+}
+
+#container {
+    height: 400px;
+    margin-top: -280px;
+    position: relative;
+    top: 50%;
+    width: auto;
+}
+
+.centered-text {
+    height: auto;
+    text-align: center;
+}
+
+#logo {
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+#welcome {
+    font-size: 37pt;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+#instruction {
+    font-weight: 300;
+    margin-bottom: 120px;
+}
+
+#avatar-text {
+    font-size: 23pt;
+    font-weight: 200;
+    margin-bottom: 40px;
+}
+
+#image-border {
+    background-color: #FFFFFF;
+    height: 300px;
+    margin: 0 auto;
+    width: 300px;
+    -webkit-box-shadow: 0 0 20px 0 #C5C7CE;
+    -moz-box-shadow: 0 0 20px 0 #C5C7CE;
+    box-shadow: 0 0 20px 0 #C5C7CE;
+}
+
+#image {
+    background-color: #918A86;
+    height: 250px;
+    margin: auto;
+    position: relative;
+    top: 8.33333%;
+    width: 250px;
+}
+
+#try-again {
+    color: #918A86;
+    font-size: 9pt;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+form {
+    height: auto;
+    margin: 60px auto 0 auto;
+    width: 470px;
+}
+
+ul {
+    margin-left: 25px;
+}
+
+li {
+    float: left;
+    list-style: none;
+    width: auto;
+}
+
+#name-input {
+    border-bottom: solid 2px #A0A3AC;
+    font-size: 20pt;
+    font-weight: 800;
+    height: 45px;
+    text-align: center;
+    width: 420px;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+
+#name-submit {
+    cursor: pointer;
+    height: 45px;
+    width: 50px;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+
+input:focus {
+    border-color: transparent;
+    outline-style: none;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHA-1 Origamicons</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}"
+          rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="container">
+    <div class="centered-text" id="avatar-text">{{ name }}</div>
+    <div id="image-border">
+        <div id="image">{{ name }}</div>
+    </div>
+    <div class="centered-text" id="try-again">
+        Don't like this avatar? Consider trying a similar name.
+    </div>
+    <form method="post">
+        <ul>
+            <li>
+                <input autocomplete="off" autofocus id="name-input"
+                       name="text" type="text">
+            </li>
+            <li>
+                <input type="submit" value="OK" id="name-submit">
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>
