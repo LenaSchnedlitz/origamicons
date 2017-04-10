@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Mailea/individual-sha1-origamicons/blob/master/static/res/logo.png"/>
+  <img src="https://github.com/Mailea/individual-sha1-origamicons/blob/master/origamicon/static/res/logo.png"/>
 </p>
 
 
