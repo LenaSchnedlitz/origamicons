@@ -89,6 +89,10 @@ form {
     width: 470px;
 }
 
+#landing-form {
+    width: 400px;
+}
+
 ul {
     margin-left: 25px;
 }
@@ -100,12 +104,19 @@ li {
 }
 
 #name-input {
-    border-bottom: solid 2px #A0A3AC;
+    width: 425px;
+}
+
+#landing-input {
+    width: 355px;
+}
+
+.underlined-input {
+    border-bottom: solid 2px #A0A3AC !important;
     font-size: 20pt;
     font-weight: 800;
     height: 45px;
     text-align: center;
-    width: 420px;
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     -webkit-box-sizing: content-box;
@@ -114,8 +125,9 @@ li {
 
 #name-submit {
     cursor: pointer;
+    display: none;
     height: 45px;
-    width: 50px;
+    width: 45px;
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     -webkit-box-sizing: content-box;

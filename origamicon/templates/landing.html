@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHA-1 Origamicons</title>
-    <link href="{{ url_for('static', filename='css/style.css') }}"
-          rel="stylesheet" type="text/css">
-</head>
-<body>
-<div id="container">
+{% extends "base.html" %}
+{% block content %}
     <div class="centered-text">
         <img alt="" id="logo"
              src="{{url_for('static', filename='img/logo.png')}}">
@@ -16,17 +8,18 @@
     <div class="centered-text" id="instruction">
         Enter your name below to create your SHA-1 Origamicon.
     </div>
-    <form method="post">
+    <form method="post" id="landing-form">
         <ul>
             <li>
-                <input autocomplete="off" autofocus id="name-input"
-                       name="text" type="text">
+                <input autocomplete="off" autofocus class="underlined-input"
+                       id="landing-input" name="text" type="text">
             </li>
             <li>
-                <input type="submit" value="OK" id="name-submit">
+                <button type="submit" id="name-submit" value="">
+                    <img alt=""
+                         src="{{url_for('static', filename='img/submit.png')}}"/>
+                </button>
             </li>
         </ul>
     </form>
-</div>
-</body>
-</html>
+{% endblock %}

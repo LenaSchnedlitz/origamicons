@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SHA-1 Origamicons</title>
-    <link href="{{ url_for('static', filename='css/style.css') }}"
-          rel="stylesheet" type="text/css">
-</head>
-<body>
-<div id="container">
+{% extends "base.html" %}
+{% block content %}
     <div class="centered-text" id="avatar-text">{{ name }}</div>
     <div id="image-border">
         <div id="image">{{ name }}</div>
@@ -18,14 +10,15 @@
     <form method="post">
         <ul>
             <li>
-                <input autocomplete="off" autofocus id="name-input"
-                       name="text" type="text">
+                <input autocomplete="off" autofocus class="underlined-input"
+                       id="name-input" name="text" type="text">
             </li>
             <li>
-                <input type="submit" value="OK" id="name-submit">
+                <button type="submit" id="name-submit" value="">
+                    <img alt=""
+                         src="{{url_for('static', filename='img/submit.png')}}"/>
+                </button>
             </li>
         </ul>
     </form>
-</div>
-</body>
-</html>
+{% endblock %}
