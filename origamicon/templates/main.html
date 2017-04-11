@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="h-centered" id="avatar-text">{{ name }}</div>
-    <div id="image-border">
-        <div id="image">{{ name }}</div>
+    <div class="h-centered" id="image-border">
+        <img id="image" src="data:;base64, {{ image }}"/>
     </div>
     <div class="h-centered" id="download-text">
         Don't like this avatar? Consider trying a similar name.

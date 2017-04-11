@@ -55,7 +55,7 @@ body {
 }
 
 #image-border {
-    background-color: #FFFFFF;
+    background-color: #F1F0F0;
     height: 300px;
     margin: 0 auto;
     width: 300px;
@@ -77,7 +77,7 @@ body {
 
 #landing-form input {
     height: 45px;
-    width: 355px;  /* form width - input height */
+    width: 355px; /* form width - input height */
 }
 
 #main-form {
@@ -88,11 +88,11 @@ body {
 
 #main-form input {
     height: 45px;
-    width: 425px;  /* form width - input height */
+    width: 425px; /* form width - input height */
 }
 
 #landing-form > ul, #main-form > ul {
-    margin-left: 25px;  /* fixes vertical offset caused by submit-button */
+    margin-left: 25px; /* fixes vertical offset caused by submit-button */
 }
 
 #landing-form > ul > li, #main-form > ul > li {
