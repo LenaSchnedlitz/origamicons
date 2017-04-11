@@ -120,12 +120,18 @@ body {
     -moz-box-sizing: content-box;
 }
 
-#about-text {
+#about-text, #about-text a {
     color: #918A86;
     font-size: 9pt;
     font-weight: 500;
     line-height: 150%;
     margin-top: 20px;
+}
+
+#about-text a {
+    color: #A0A3AC;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 #avatar-text {
