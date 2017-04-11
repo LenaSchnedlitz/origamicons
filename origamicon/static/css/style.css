@@ -16,11 +16,28 @@ a, body, button, div, form, html, input, li, nav, ul {
     transition: all 0.3s;
 }
 
+input:focus {
+    border-color: transparent;
+    outline-style: none;
+}
+
 body {
     background-color: #F1F0F0;
 }
 
-#container {
+.bottom-left {
+    bottom: 20px;
+    height: auto;
+    left: 20px;
+    position: fixed;
+}
+
+.h-centered {
+    height: auto;
+    text-align: center;
+}
+
+.v-centered {
     height: 400px;
     margin-top: -280px;
     position: relative;
@@ -28,32 +45,13 @@ body {
     width: auto;
 }
 
-.centered-text {
-    height: auto;
-    text-align: center;
-}
-
-#logo {
-    height: 100px;
-    margin-bottom: 50px;
-}
-
-#welcome {
-    font-size: 37pt;
-    font-weight: 800;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-}
-
-#instruction {
-    font-weight: 300;
-    margin-bottom: 120px;
-}
-
-#avatar-text {
-    font-size: 23pt;
-    font-weight: 200;
-    margin-bottom: 40px;
+#image {
+    background-color: #918A86;
+    height: 250px;
+    margin: auto;
+    position: relative;
+    top: 8.33333%;
+    width: 250px;
 }
 
 #image-border {
@@ -66,64 +64,52 @@ body {
     box-shadow: 0 0 20px 0 #C5C7CE;
 }
 
-#image {
-    background-color: #918A86;
-    height: 250px;
-    margin: auto;
-    position: relative;
-    top: 8.33333%;
-    width: 250px;
+#logo {
+    height: 100px;
+    margin-bottom: 50px;
 }
 
-#try-again {
-    color: #918A86;
-    font-size: 9pt;
-    font-style: italic;
-    font-weight: 500;
-    margin-top: 20px;
+#landing-form {
+    height: auto;
+    margin: 60px auto 0 auto;
+    width: 400px;
 }
 
-form {
+#landing-form input {
+    height: 45px;
+    width: 355px;  /* form width - input height */
+}
+
+#main-form {
     height: auto;
     margin: 60px auto 0 auto;
     width: 470px;
 }
 
-#landing-form {
-    width: 400px;
+#main-form input {
+    height: 45px;
+    width: 425px;  /* form width - input height */
 }
 
-ul {
-    margin-left: 25px;
+#landing-form > ul, #main-form > ul {
+    margin-left: 25px;  /* fixes vertical offset caused by submit-button */
 }
 
-li {
+#landing-form > ul > li, #main-form > ul > li {
     float: left;
     list-style: none;
     width: auto;
 }
 
-#name-input {
-    width: 425px;
-}
-
-#landing-input {
-    width: 355px;
-}
-
-.underlined-input {
+#landing-form input, #main-form input {
     border-bottom: solid 2px #A0A3AC !important;
-    font-size: 20pt;
-    font-weight: 800;
-    height: 45px;
-    text-align: center;
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
 }
 
-#name-submit {
+#landing-form button, #main-form button {
     cursor: pointer;
     display: none;
     height: 45px;
@@ -134,7 +120,43 @@ li {
     -moz-box-sizing: content-box;
 }
 
-input:focus {
-    border-color: transparent;
-    outline-style: none;
+#about-text {
+    color: #918A86;
+    font-size: 9pt;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 20px;
+}
+
+#avatar-text {
+    font-size: 23pt;
+    font-weight: 200;
+    margin-bottom: 40px;
+}
+
+#download-text {
+    color: #918A86;
+    font-size: 9pt;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+#input-text {
+    font-size: 20pt;
+    font-weight: 800;
+    text-align: center;
+}
+
+#instruction-text {
+    font-size: 14pt;
+    font-weight: 300;
+    margin-bottom: 120px;
+}
+
+#welcome-text {
+    font-size: 37pt;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-transform: uppercase;
 }

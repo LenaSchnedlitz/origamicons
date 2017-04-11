@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="centered-text" id="avatar-text">{{ name }}</div>
+    <div class="h-centered" id="avatar-text">{{ name }}</div>
     <div id="image-border">
         <div id="image">{{ name }}</div>
     </div>
-    <div class="centered-text" id="try-again">
+    <div class="h-centered" id="download-text">
         Don't like this avatar? Consider trying a similar name.
     </div>
-    <form method="post">
+    <form method="post" id="main-form">
         <ul>
             <li>
-                <input autocomplete="off" autofocus class="underlined-input"
-                       id="name-input" name="text" type="text">
+                <input autocomplete="off" autofocus id="input-text" name="text"
+                       type="text">
             </li>
             <li>
-                <button type="submit" id="name-submit" value="">
+                <button type="submit" id="submit-button" value="">
                     <img alt=""
                          src="{{url_for('static', filename='img/submit.png')}}"/>
                 </button>
