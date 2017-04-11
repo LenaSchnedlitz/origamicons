@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Overpass:200,300,400,600,600i,700,800&subset=latin-ext");
 
 a, body, button, div, form, html, input, li, nav, ul {
     background-color: transparent;
@@ -123,7 +123,7 @@ body {
 #about-text, #about-text a {
     color: #918A86;
     font-size: 9pt;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 150%;
     margin-top: 20px;
 }
@@ -144,7 +144,7 @@ body {
     color: #918A86;
     font-size: 9pt;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 20px;
 }
 
