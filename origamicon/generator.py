@@ -1,9 +1,9 @@
-"""Generate a 250x250-avatar from a name string."""
+"""Generate a 250x250px avatar from a name string."""
 
-RESIZE_FACTOR = 4  # high values make result images smoother
 ALPHA = 50  # alpha value of triangles
 BG_DARKNESS = 60  # will be subtracted from (r,g,b)-values of background
 HUE_REDUCTION = 20  # gradient strength
+RESIZE_FACTOR = 4  # high values make result images smoother
 
 
 def __sha1_hash(name):
