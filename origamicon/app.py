@@ -16,7 +16,7 @@ def update_avatar():
 
     import generator as gen
 
-    image = gen.generate_avatar(text)
+    image = gen.get_image(text)
 
     return render_template("main.html", name=text)
 
