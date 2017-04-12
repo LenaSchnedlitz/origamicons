@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Overpass:200,300,400,600,600i,700,800&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Overpass:200,300,400,400i,600,700,800&subset=latin-ext");
 
 a, body, button, div, form, html, input, li, nav, ul {
     background-color: transparent;
@@ -45,23 +45,43 @@ body {
     width: auto;
 }
 
+#image-border {
+    background-color: #faf9f9;
+    height: 290px;
+    margin: 0 auto;
+    width: 290px;
+    -webkit-box-shadow: 0 0 20px 0 #D1C9C7;
+    -moz-box-shadow: 0 0 20px 0 #D1C9C7;
+    box-shadow: 0 0 20px 0 #D1C9C7;
+}
+
 #image {
-    background-color: #918A86;
     height: 250px;
-    margin: auto;
     position: relative;
-    top: 8.33333%;
+    top: 20px; /* image-border height - image height */
     width: 250px;
 }
 
-#image-border {
-    background-color: #F1F0F0;
-    height: 300px;
+#download-button {
+    height: 120px;
     margin: 0 auto;
-    width: 300px;
-    -webkit-box-shadow: 0 0 20px 0 #C5C7CE;
-    -moz-box-shadow: 0 0 20px 0 #C5C7CE;
-    box-shadow: 0 0 20px 0 #C5C7CE;
+    position: relative;
+    top: -60%;
+    width: 120px;
+    cursor: pointer;
+    display: none;
+}
+
+#image-border:hover > #image {
+    opacity: 0.3;
+    filter: alpha(opacity=30); /* For IE8 and earlier */
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#image-border:hover > #download-button {
+    display: block;
 }
 
 #logo {
@@ -140,12 +160,12 @@ body {
     margin-bottom: 40px;
 }
 
-#download-text {
+#try-again-text {
     color: #918A86;
     font-size: 9pt;
     font-style: italic;
-    font-weight: 600;
-    margin-top: 20px;
+    font-weight: 400;
+    margin-top: 25px;
 }
 
 #input-text {
