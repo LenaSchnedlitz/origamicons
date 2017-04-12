@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="h-centered" id="avatar-text">{{ name }}</div>
-    <form action="image" class="h-centered"
-          id="image-border" method="get">
+    <div class="h-centered" id="image-border">
         <img alt="" id="image" src="data:;base64, {{ image }}"/>
-        <button id="download-button" type="submit">
+        <a download="avatar.png" href="data:;base64, {{ image }}" id="download-button">
             <img alt=""
                  src="{{ url_for('static', filename='img/download.png') }}"/>
-        </button>
-    </form>
+        </a>
+    </div>
     <div class="h-centered" id="try-again-text">
         Don't like this avatar? Consider trying a similar name.
     </div>
