@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -26,6 +26,7 @@ def update_avatar():
     image_data = image_data.decode()
 
     return render_template("main.html", name=text, image=image_data)
+
 
 if __name__ == "__main__":
     app.run()
