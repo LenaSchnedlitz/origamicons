@@ -19,7 +19,7 @@ def update_avatar():
     import generator as gen
 
     buffer = io.BytesIO()
-    image = gen.get_image(text)
+    image = gen.create_origamicon(text)
     image.save(buffer, format="PNG")
     image_data = buffer.getvalue()
     image_data = b.b64encode(image_data)
