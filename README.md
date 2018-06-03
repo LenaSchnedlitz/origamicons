@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="https://github.com/Mailea/individual-sha1-origamicons/blob/master/origamicon/static/img/logo.png"/>
+  <img src="https://github.com/Mailea/origamicons/blob/master/origamicon/static/img/logo.png"/>
 </p>
 
 
-# SHA-1 Origamicons
+# Origamicons
 
-
-(Almost) unique Identicons, inspired by folded paper.   
+(Almost) unique identicons, based on SHA-1 and inspired by folded paper.   
 
 ## How to Use
-This program was written in **Python 3.5**. All other requirements are listed in *requirements.txt* and can be installed with Pip:
+This program is written in **Python 3.6**.  
+Requirements are listed in *requirements.txt* and can be installed with Pip:
 ```bash
 pip install -r requirements.txt
 ```
@@ -20,7 +20,7 @@ python app.py
 
 
 ### Command Line Tool
-The avatar generator can also be used as a command line app:
+The avatar generator can also be used as a command line tool:
 ```
 python generator.py
 ```
