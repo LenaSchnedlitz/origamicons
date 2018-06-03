@@ -1,11 +1,11 @@
 """Generate a 250x250px avatar from a name string."""
 
-import math as math
-
 from PIL import Image, ImageDraw
 
-ORIGAMICON_SIZE = 250
-PROCESSING_SIZE = 16 ** 2
+import math as math
+
+ORIGAMICON_SIZE = 250  # size of the final result
+PROCESSING_SIZE = 16 ** 2  # size used during origamicon creation
 RESIZE_FACTOR = 4  # high values make result images smoother
 
 
@@ -21,10 +21,6 @@ def to_decimal(hex_string):
 
 
 def scale_up(number):
-    return number * RESIZE_FACTOR
-
-
-def scale_down(number):
     return number * RESIZE_FACTOR
 
 
