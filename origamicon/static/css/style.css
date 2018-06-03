@@ -102,6 +102,13 @@ h1 {
   filter: brightness(105%);
 }
 
+.logo > img {
+  border-radius: 50%;
+  box-sizing: border-box;
+
+  border: solid 13px var(--bg-color);
+}
+
 img {
   height: var(--origamicon-size);
   width: var(--origamicon-size);
@@ -112,7 +119,7 @@ img {
   box-shadow: 0 6px 20px 0 var(--fade-color);
 }
 
-.origamicon a {
+.origamicon > a {
   height: 120px;
   width: 120px;
   position: relative;

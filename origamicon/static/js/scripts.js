@@ -26,7 +26,7 @@ getLogoParams = () => {
   return {
     parentClass: 'logo',
     imageAlt: 'Logo',
-    imageSrc: '../static/img/logo.png'
+    imageSrc: '../static/img/logo_origamicon.png'
   }
 };
 
