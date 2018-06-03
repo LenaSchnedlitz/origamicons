@@ -91,22 +91,15 @@ h1 {
 
 /* ORIGAMICON ****************************************************************/
 
-#logo {
+#container {
   height: var(--origamicon-size);
   width: var(--origamicon-size);
   margin: 0 auto;
   padding: 20px;
-  filter: brightness(105%);
 }
 
-#origamicon-frame {
-  height: var(--origamicon-size);
-  width: var(--origamicon-size);
-  margin: 0 auto;
-  padding: 20px;
-
-  background-color: var(--frame-color);
-  box-shadow: 0 6px 20px 0 var(--fade-color);
+.logo {
+  filter: brightness(105%);
 }
 
 img {
@@ -114,7 +107,12 @@ img {
   width: var(--origamicon-size);
 }
 
-#download-link {
+.origamicon {
+  background-color: var(--frame-color);
+  box-shadow: 0 6px 20px 0 var(--fade-color);
+}
+
+.origamicon a {
   height: 120px;
   width: 120px;
   position: relative;
@@ -128,16 +126,16 @@ img {
   cursor: pointer;
 }
 
-#origamicon-frame:hover > img {
+.origamicon:hover > img {
   opacity: 0.3;
 }
 
-#origamicon-frame:hover > #download-link {
+.origamicon:hover > a {
   display: block;
 }
 
 @media all and (max-width: 600px) {
-  #origamicon-frame {
+  .origamicon {
     margin-top: calc(10% + 3.5rem);
   }
 }

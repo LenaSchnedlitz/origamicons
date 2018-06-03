@@ -8,31 +8,13 @@
   <link
     href="{{ url_for('static', filename='img/fav.ico') }}"
     rel="shortcut icon"
-  >
+  />
   <link
     href="{{ url_for('static', filename='css/style.css') }}"
     rel="stylesheet"
     type="text/css"
-  >
-  <script>
-    callOnFocus = () => {
-      /* compensates for missing onfocus call when using autofocus */
-      const autofocused = document.activeElement;
-      if (autofocused.onfocus) {
-        autofocused.onfocus();
-      }
-    };
-    moveCaretToInputEnd = (input) => {
-      /* sets input value again to position caret correctly */
-      const value = input.value;
-      input.value='';
-      input.value=value;
-    };
-    submitIfChanged = (input) => {
-      if (input.value !== '{{ name }}') {
-        input.form.submit()
-      }
-    }
+  />
+  <script src="../static/js/scripts.js">
   </script>
 </head>
 <body onload="callOnFocus();">
@@ -42,25 +24,25 @@
     <h1>
       Origamicons
     </h1>
+
     {% if image %}
-      <section id="origamicon-frame">
+      <section id="container" class="origamicon">
         <img
-          alt="Origamicon for '{{ name }}'"
+          alt="Origamicon for {{ name }}"
           src="{{ image }}"
         />
         <a
-          id="download-link"
           download="origamicon_{{ name }}.png"
           href="{{ image }}"
-        >
-        </a>
+        ></a>
       </section>
     {% else %}
-      <section id="logo">
+      <section id="container" class="logo">
         <img
           alt="Logo"
           src="{{ url_for('static', filename='img/logo.png') }}"
         />
+        <a></a>
       </section>
     {% endif %}
 
@@ -70,7 +52,7 @@
         autofocus
         name="origamicon-text"
         onfocus="moveCaretToInputEnd(this);"
-        onkeyup="submitIfChanged(this);"
+        onkeyup="show(this.value);"
         placeholder="Please enter your name here..."
         title="Origamicon Text"
         type="text"
