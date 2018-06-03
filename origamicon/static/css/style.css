@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass:600,700,800&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Overpass:200i,600,700,800&subset=latin-ext');
 
 :root {
   --origamicon-size: 250px;
@@ -10,6 +10,22 @@
   --fade-color: #00000033;
   --light-text-color: #5c5c5c;
   --link-text-color: #2a2a2a;
+}
+
+::selection {
+  background: white;
+}
+
+::-moz-selection {
+  background: white;
+}
+
+::placeholder {
+  color: var(--light-text-color);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 200;
+  opacity: 1;
 }
 
 html, body, div, section, form, input, button {
@@ -31,6 +47,11 @@ body {
 }
 
 main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   text-align: center;
 }
 
@@ -55,7 +76,7 @@ h1 {
 #origamicon-frame {
   height: var(--origamicon-size);
   width: var(--origamicon-size);
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto;
   padding: 20px;
 
   background-color: var(--frame-color);
@@ -95,19 +116,17 @@ form {
   height: auto;
   display: flex;
   justify-content: center;
-  margin: 3.75rem auto 0 auto;
-}
-
-form input[type=text] {
-  height: var(--input-height);
-  width: 400px;
-  margin-left: 45px;
+  margin: 4rem auto;
 }
 
 input[type=text] {
+  height: var(--input-height);
+  width: 400px;
+  margin-left: 45px;
   box-sizing: content-box;
 
-  border-bottom: solid 2px var(--light-text-color) !important;
+  border: none;
+  border-bottom: solid 2px var(--fade-color);
 
   font-size: 1.6rem;
   font-weight: 800;
@@ -115,7 +134,7 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-  border-color: transparent;
+  border-color: var(--light-text-color);
   outline-style: none;
 }
 
@@ -129,6 +148,11 @@ input[type=submit] {
   color: transparent;
 
   cursor: pointer;
+  opacity: 0.3;
+}
+
+input[type=text]:focus + input[type=submit] {
+  opacity: 1;
 }
 
 /* ABOUT ME ******************************************************************/

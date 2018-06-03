@@ -38,13 +38,17 @@
         <input
             autocomplete='off'
             autofocus
-            onfocus='this.value=""; this.value="{{ name }}";'
             name='text'
-            title='origamicon-text'
+            onfocus='this.value=""; this.value="{{ name }}";'
+            placeholder='Please enter your name here...'
+            title='Origamicon Text'
             type='text'
-            value="{{ name }}"
+            value='{{ name }}'
         />
-        <input type='submit'>
+        <input
+            title='Submit'
+            type='submit'
+        >
       </form>
     </main>
 

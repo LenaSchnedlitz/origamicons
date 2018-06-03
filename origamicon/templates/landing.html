@@ -1,25 +1,51 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <div class="h-centered">
-        <img alt="" id="logo"
-             src="{{ url_for('static', filename='img/logo.png') }}">
-    </div>
-    <div class="h-centered" id="welcome-text">Welcome</div>
-    <div class="h-centered" id="instruction-text">
-        Enter your name below to create your SHA-1 Origamicon.
-    </div>
-    <form method="post" id="landing-form">
-        <ul>
-            <li>
-                <input autocomplete="off" autofocus id="input-text" name="text"
-                       type="text">
-            </li>
-            <li>
-                <button type="submit" id="submit-button" value="">
-                    <img alt=""
-                         src="{{ url_for('static', filename='img/submit.png') }}"/>
-                </button>
-            </li>
-        </ul>
-    </form>
+  <div class="h-centered">
+    <img
+        id="logo"
+        alt=""
+        src="{{ url_for('static', filename='img/logo.png') }}"
+    >
+  </div>
+  <div
+      id="welcome-text"
+      class="h-centered"
+  >
+    Welcome
+  </div>
+  <div
+      id="instruction-text"
+      class="h-centered"
+  >
+    Enter your name below to create your SHA-1 Origamicon.
+  </div>
+  <form
+      id="landing-form"
+      method="post"
+  >
+    <ul>
+      <li>
+        <input
+            id="input-text"
+            autocomplete="off"
+            autofocus
+            name="text"
+            type="text"
+        >
+      </li>
+      <li>
+        <button
+            id="submit-button"
+            type="submit"
+            value=""
+        >
+          <img
+              alt=""
+              src="{{ url_for('static', filename='img/submit.png') }}"
+          />
+        </button>
+      </li>
+    </ul>
+  </form>
 {% endblock %}
