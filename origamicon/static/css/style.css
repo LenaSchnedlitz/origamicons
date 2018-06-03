@@ -48,27 +48,45 @@ body {
 
 main {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
 
   text-align: center;
 }
 
 h1 {
-  width: 200px;
   position: absolute;
-  top: calc(1.25rem + 200px);
-  right: 1.25rem;
   margin: 0;
 
   color: var(--link-text-color);
   font-size: 1rem;
   font-weight: 600;
   text-align: left;
+}
 
-  transform: rotate(90deg);
-  transform-origin: top right;
+@media all and (max-width: 600px) {
+  h1 {
+    top: 1.25rem;
+    left: 1.25rem;
+
+    font-weight: 800;
+  }
+}
+
+@media all and (min-width: 601px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    width: 200px;
+    top: calc(1.25rem + 200px);
+    right: 1.25rem;
+
+    transform: rotate(90deg);
+    transform-origin: top right;
+  }
 }
 
 /* ORIGAMICON ****************************************************************/
@@ -118,6 +136,12 @@ img {
   display: block;
 }
 
+@media all and (max-width: 600px) {
+  #origamicon-frame {
+    margin-top: calc(10% + 3.5rem);
+  }
+}
+
 /* FORM **********************************************************************/
 
 form {
@@ -161,6 +185,27 @@ input[type=submit] {
 
 input[type=text]:focus + input[type=submit] {
   opacity: 1;
+}
+
+@media all and (max-height: 550px) {
+  form {
+    margin-top: 8%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  input[type=text] {
+    width: calc(100% - 40px);
+    margin-left: 0;
+  }
+
+  input[type=submit] {
+    position: absolute;
+    right: 15px;
+
+    background-color: var(--bg-color);
+    opacity: 1;
+  }
 }
 
 /* ABOUT ME ******************************************************************/
