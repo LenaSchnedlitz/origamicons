@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8">
     <title>
       SHA-1 Origamicon
     </title>
     <link
-        rel='shortcut icon'
-        href='{{ url_for('static', filename='img/favicon.ico') }}'
+        rel="shortcut icon"
+        href="{{ url_for("static", filename="img/favicon.ico") }}"
     >
     <link
-        href='{{ url_for('static', filename='css/style.css') }}'
-        rel='stylesheet'
-        type='text/css'
+        href="{{ url_for("static", filename="css/style.css") }}"
+        rel="stylesheet"
+        type="text/css"
     >
   </head>
-  <body onload='document.activeElement.onfocus();'>
+  <body onload="document.activeElement.onfocus();">
 
     <main>
       <h1>
         SHA-1 Origamicon
       </h1>
-      <section id='origamicon-frame'
+      <section id="origamicon-frame"
       >
         <img
-            alt='Origamicon for {{ name }}'
-            src='data:;base64, {{ image }}'
+            alt="Origamicon for {{ name }}"
+            src="data:;base64, {{ image }}"
         />
         <a
-            id='download-link'
-            download='origamicon.png'
-            href='data:;base64, {{ image }}'
+            id="download-link"
+            download="origamicon.png"
+            href="data:;base64, {{ image }}"
         >
         </a>
       </section>
-      <form method='post'>
+      <form method="post">
         <input
-            autocomplete='off'
+            autocomplete="off"
             autofocus
-            name='text'
-            onfocus='this.value=""; this.value="{{ name }}";'
-            placeholder='Please enter your name here...'
-            title='Origamicon Text'
-            type='text'
-            value='{{ name }}'
+            name="text"
+            onfocus="this.value=''; this.value='{{ name }}';"
+            placeholder="Please enter your name here..."
+            title="Origamicon Text"
+            type="text"
+            value="{{ name }}"
         />
         <input
-            title='Submit'
-            type='submit'
+            title="Submit"
+            type="submit"
         >
       </form>
     </main>
 
-    <section class='corner-text'>
+    <section class="corner-text">
       Interested?
       <br/>
       Find out more on
-      <a href='https://maileablog.wordpress.com/portfolio/sha-1-origamicons/'>
+      <a href="https://maileablog.wordpress.com/portfolio/sha-1-origamicons/">
         my blog
       </a>
       <br/>
       or view the source code on
-      <a href='https://github.com/Mailea/individual-sha1-origamicons'>
+      <a href="https://github.com/Mailea/individual-sha1-origamicons">
         GitHub
       </a>
     </section>
