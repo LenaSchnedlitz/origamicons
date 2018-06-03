@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  width='45'
+  height='45'
+  viewBox='0 0 45 45'
+>
+  <path
+    d='m 14.426956,31 0,-5.848214 4,-0.857143 z'
+    style='fill:#dcdcdc;'
+  />
+  <path
+    d='m 14.426956,14 4,6.705357 -4,-0.879464 z'
+    style='fill:#dcdcdc;'
+  />
+  <path
+    d='M 14.426956,14 35,22.5 14.426956,31 l 2,-6.25 10,-2.25 -10,-2.25 z'
+    style='fill:#2a2a2a;'
+  />
+</svg>

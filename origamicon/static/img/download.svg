@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+  xmlns='http://www.w3.org/2000/svg'
+  height='80'
+  width='80'
+  viewBox='0 0 80 80'
+>
+  <path d='M 10 48.75 L 10 70 L 70 70 L 70 48.75 L 65 48.75 L 65 65 L 15 65 L 15 48.75 L 10 48.75 z '/>
+  <rect
+    x='37.5'
+    y='15'
+    height='30'
+    width='5'
+  />
+  <rect
+    x='17.677765'
+    y='18.890968'
+    height='20'
+    width='5'
+    transform='matrix(0.70710678, -0.70710678, 0.70710678, 0.70710678, 0, 35)'
+  />
+  <rect
+    x='33.890545'
+    y='-37.677341'
+    height='20'
+    width='5'
+    transform='matrix(0.70710678, 0.70710678, -0.70710678, 0.70710678, 0, 35)'
+  />
+</svg>
