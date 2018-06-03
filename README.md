@@ -5,7 +5,7 @@
 
 # Origamicons
 
-(Almost) unique identicons, based on SHA-1 and inspired by folded paper.   
+(Almost) unique identicons - Based on SHA-1 and inspired by folded paper.   
 
 ## Requirements
 This program is written in **Python 3.6**.  
@@ -31,4 +31,4 @@ python generator.py
 ```
 
 ## Online
-To see the web app in action, click [here](http://sha1-origamicon.herokuapp.com/).
+To see the web app in action, click [here](https://origamicons.herokuapp.com).
