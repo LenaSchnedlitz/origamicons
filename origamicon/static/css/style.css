@@ -58,8 +58,8 @@ main {
 h1 {
   width: 200px;
   position: absolute;
-  top: calc(1.5rem + 200px);
-  right: 1.5rem;
+  top: calc(1.25rem + 200px);
+  right: 1.25rem;
   margin: 0;
 
   color: var(--link-text-color);

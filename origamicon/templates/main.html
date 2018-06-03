@@ -7,10 +7,10 @@
     </title>
     <link
         rel="shortcut icon"
-        href="{{ url_for("static", filename="img/fav.ico") }}"
+        href="{{ url_for('static', filename='img/fav.ico') }}"
     >
     <link
-        href="{{ url_for("static", filename="css/style.css") }}"
+        href="{{ url_for('static', filename='css/style.css') }}"
         rel="stylesheet"
         type="text/css"
     >
@@ -29,7 +29,7 @@
         />
         <a
             id="download-link"
-            download="origamicon.png"
+            download="origamicon_{{ name }}.png"
             href="data:;base64, {{ image }}"
         >
         </a>
