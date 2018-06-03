@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <title>
-    Origamicons
-  </title>
+  <title>Origamicons</title>
   <link
     href="{{ url_for('static', filename='img/fav.ico') }}"
     rel="shortcut icon"
@@ -14,16 +13,14 @@
     rel="stylesheet"
     type="text/css"
   />
-  <script src="../static/js/scripts.js">
-  </script>
+  <script src="../static/js/scripts.js"></script>
+
 </head>
 <body onload="callOnFocus();">
 
   <main>
 
-    <h1>
-      Origamicons
-    </h1>
+    <h1>Origamicons</h1>
 
     {% if image %}
       <section id="container" class="origamicon">

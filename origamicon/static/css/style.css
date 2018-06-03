@@ -175,6 +175,10 @@ input[type=text]:focus {
   outline-style: none;
 }
 
+input[type=text]:focus::placeholder {
+  color: transparent;
+}
+
 input[type=submit] {
   height: var(--input-height);
   width: var(--input-height);
