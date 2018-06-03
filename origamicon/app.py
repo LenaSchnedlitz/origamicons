@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('landing.html')
+    return render_template('main.html')
 
 
 @app.route("/", methods=['POST'])
 def update_avatar():
     text = request.form['text']
     if not text:
-        return render_template('landing.html')
+        return render_template('main.html')
 
     import io as io
     import base64 as b

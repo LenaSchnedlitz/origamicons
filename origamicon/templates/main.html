@@ -21,19 +21,27 @@
       <h1>
         SHA-1 Origamicon
       </h1>
-      <section id="origamicon-frame"
-      >
-        <img
-            alt="Origamicon for '{{ name }}'"
-            src="data:;base64, {{ image }}"
-        />
-        <a
-            id="download-link"
-            download="origamicon_{{ name }}.png"
-            href="data:;base64, {{ image }}"
-        >
-        </a>
-      </section>
+      {% if image %}
+        <section id="origamicon-frame">
+          <img
+              alt="Origamicon for '{{ name }}'"
+              src="data:;base64, {{ image }}"
+          />
+          <a
+              id="download-link"
+              download="origamicon_{{ name }}.png"
+              href="data:;base64, {{ image }}"
+          >
+          </a>
+        </section>
+      {% else %}
+        <section id="logo">
+          <img
+              alt="Logo"
+              src="{{ url_for('static', filename='img/logo.png') }}"
+          />
+        </section>
+      {% endif %}
       <form method="post">
         <input
             autocomplete="off"

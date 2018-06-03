@@ -73,6 +73,14 @@ h1 {
 
 /* ORIGAMICON ****************************************************************/
 
+#logo {
+  height: var(--origamicon-size);
+  width: var(--origamicon-size);
+  margin: 0 auto;
+  padding: 20px;
+  filter: brightness(105%);
+}
+
 #origamicon-frame {
   height: var(--origamicon-size);
   width: var(--origamicon-size);
@@ -116,7 +124,7 @@ form {
   height: auto;
   display: flex;
   justify-content: center;
-  margin: 4rem auto;
+  margin: 3rem auto 6rem;
 }
 
 input[type=text] {
