@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Overpass:200,300,600,700,800&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Overpass:600,700,800&subset=latin-ext');
 
 :root {
   --origamicon-size: 250px;
@@ -7,7 +7,7 @@
   /* color palette */
   --bg-color: #f0f0f0;
   --frame-color: #ffffff;
-  --fade-color: #dcdcdc;
+  --fade-color: #00000033;
   --light-text-color: #5c5c5c;
   --link-text-color: #2a2a2a;
 }
@@ -31,19 +31,23 @@ body {
 }
 
 main {
-  height: 550px;
-  width: auto;
-  position: relative;
-  top: calc((100% - 550px) * 0.4);
-
   text-align: center;
 }
 
 h1 {
-  margin-bottom: 2.5rem;
+  width: 200px;
+  position: absolute;
+  top: calc(1.5rem + 200px);
+  right: 1.5rem;
+  margin: 0;
 
-  font-size: 2rem;
-  font-weight: 200;
+  color: var(--link-text-color);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+
+  transform: rotate(90deg);
+  transform-origin: top right;
 }
 
 /* ORIGAMICON ****************************************************************/
