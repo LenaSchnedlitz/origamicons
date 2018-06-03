@@ -142,7 +142,7 @@ img {
 }
 
 @media all and (max-width: 600px) {
-  .origamicon {
+  #container {
     margin-top: calc(10% + 3.5rem);
   }
 }
