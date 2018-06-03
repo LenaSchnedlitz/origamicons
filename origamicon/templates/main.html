@@ -25,12 +25,12 @@
         <section id="origamicon-frame">
           <img
               alt="Origamicon for '{{ name }}'"
-              src="data:;base64, {{ image }}"
+              src="{{ image }}"
           />
           <a
               id="download-link"
               download="origamicon_{{ name }}.png"
-              href="data:;base64, {{ image }}"
+              href="{{ image }}"
           >
           </a>
         </section>
@@ -46,7 +46,7 @@
         <input
             autocomplete="off"
             autofocus
-            name="text"
+            name="origamicon-text"
             onfocus="this.value=''; this.value='{{ name }}';"
             placeholder="Please enter your name here..."
             title="Origamicon Text"
