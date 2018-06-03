@@ -17,19 +17,16 @@ pip install -r requirements.txt
 
 ## Web App
 The web app can be started by executing `app.py` inside the *origamicon* folder:
-```
+```python  
 python app.py
 ```
 
 ### URL Parameter
-Origamicons can be requested directly using URL parameters, e.g.
-```
-localhost:5000/mailea
-```
+Origamicons can be requested directly using URL parameters, e.g. `localhost:5000/mailea`
 
 ## Command Line Tool
 The avatar generator can also be used as a command line tool:
-```
+```python  
 python generator.py
 ```
 
