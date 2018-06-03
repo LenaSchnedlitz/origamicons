@@ -150,6 +150,6 @@ def create_origamicon(name):
 
 if __name__ == '__main__':
     username = input("What's your name? \n>")
-    img = create_origamicon(username)
-    img.format = 'PNG'
-    img.show()
+    origamicon = create_origamicon(username)
+    origamicon.format = 'PNG'
+    origamicon.show()

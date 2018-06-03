@@ -17,6 +17,16 @@ def home():
     return page()
 
 
+@app.route("/<text>", methods=['GET'])
+def load_origamicon(text):
+    buffer = io.BytesIO()
+    origamicon = generator.create_origamicon(text)
+    origamicon.save(buffer, format='PNG')
+    buffer.seek(0)
+
+    return send_file(buffer, mimetype='image/png')
+
+
 @app.route("/", methods=['POST'])
 def update_origamicon():
     text = request.form['origamicon-text']
@@ -31,16 +41,6 @@ def update_origamicon():
     image = 'data:;base64, {}'.format(image_data)
 
     return page(name=text, image=image)
-
-
-@app.route("/<text>", methods=['GET'])
-def load_origamicon(text):
-    buffer = io.BytesIO()
-    origamicon = generator.create_origamicon(text)
-    origamicon.save(buffer, format='PNG')
-    buffer.seek(0)
-
-    return send_file(buffer, mimetype='image/png')
 
 
 if __name__ == '__main__':
