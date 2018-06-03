@@ -7,7 +7,7 @@
     </title>
     <link
         rel="shortcut icon"
-        href="{{ url_for("static", filename="img/favicon.ico") }}"
+        href="{{ url_for("static", filename="img/fav.ico") }}"
     >
     <link
         href="{{ url_for("static", filename="css/style.css") }}"
@@ -24,7 +24,7 @@
       <section id="origamicon-frame"
       >
         <img
-            alt="Origamicon for {{ name }}"
+            alt="Origamicon for '{{ name }}'"
             src="data:;base64, {{ image }}"
         />
         <a
