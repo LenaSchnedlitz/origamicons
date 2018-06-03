@@ -210,7 +210,7 @@ input[type=text]:focus + input[type=submit] {
 
 /* ABOUT ME ******************************************************************/
 
-.corner-text {
+aside {
   height: auto;
   position: fixed;
   left: 1.25rem;
@@ -222,7 +222,7 @@ input[type=text]:focus + input[type=submit] {
   line-height: 150%;
 }
 
-.corner-text a {
+aside a {
   color: var(--link-text-color);
   font-weight: 700;
   text-decoration: underline;

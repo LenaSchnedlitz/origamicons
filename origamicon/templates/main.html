@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>
-      SHA-1 Origamicon
-    </title>
-    <link
-        href="{{ url_for('static', filename='img/fav.ico') }}"
-        rel="shortcut icon"
-    >
-    <link
-        href="{{ url_for('static', filename='css/style.css') }}"
-        rel="stylesheet"
-        type="text/css"
-    >
-  </head>
-  <body onload="if (document.activeElement.onfocus) {document.activeElement.onfocus();}">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Origamicons
+  </title>
+  <link
+    href="{{ url_for('static', filename='img/fav.ico') }}"
+    rel="shortcut icon"
+  >
+  <link
+    href="{{ url_for('static', filename='css/style.css') }}"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <script>
+    callOnFocus = () => {
+      /* compensates for missing onfocus call when using autofocus */
+      const autofocused = document.activeElement;
+      if (autofocused.onfocus) {
+        autofocused.onfocus();
+      }
+    };
+    moveCaretToInputEnd = (input) => {
+      /* sets input value again to position caret correctly */
+      const value = input.value;
+      input.value='';
+      input.value=value;
+    };
+    submitIfChanged = (input) => {
+      if (input.value !== '{{ name }}') {
+        input.form.submit()
+      }
+    }
+  </script>
+</head>
+<body onload="callOnFocus();">
 
-    <main>
-      <h1>
-        SHA-1 Origamicon
-      </h1>
-      {% if image %}
-        <section id="origamicon-frame">
-          <img
-              alt="Origamicon for '{{ name }}'"
-              src="{{ image }}"
-          />
-          <a
-              id="download-link"
-              download="origamicon_{{ name }}.png"
-              href="{{ image }}"
-          >
-          </a>
-        </section>
-      {% else %}
-        <section id="logo">
-          <img
-              alt="Logo"
-              src="{{ url_for('static', filename='img/logo.png') }}"
-          />
-        </section>
-      {% endif %}
-      <form method="post">
-        <input
-            autocomplete="off"
-            autofocus
-            name="origamicon-text"
-            onfocus="this.value=''; this.value='{{ name }}';"
-            placeholder="Please enter your name here..."
-            title="Origamicon Text"
-            type="text"
-            value="{{ name }}"
+  <main>
+
+    <h1>
+      Origamicons
+    </h1>
+    {% if image %}
+      <section id="origamicon-frame">
+        <img
+          alt="Origamicon for '{{ name }}'"
+          src="{{ image }}"
         />
-        <input
-            title="Submit"
-            type="submit"
+        <a
+          id="download-link"
+          download="origamicon_{{ name }}.png"
+          href="{{ image }}"
         >
-      </form>
-    </main>
+        </a>
+      </section>
+    {% else %}
+      <section id="logo">
+        <img
+          alt="Logo"
+          src="{{ url_for('static', filename='img/logo.png') }}"
+        />
+      </section>
+    {% endif %}
 
-    <section class="corner-text">
-      Interested?
-      <br/>
-      Find out more on
-      <a href="https://maileablog.wordpress.com/portfolio/sha-1-origamicons/">
-        my blog
-      </a>
-      <br/>
-      or view the source code on
-      <a href="https://github.com/Mailea/origamicons">
-        GitHub
-      </a>
-    </section>
+    <form method="post">
+      <input
+        autocomplete="off"
+        autofocus
+        name="origamicon-text"
+        onfocus="moveCaretToInputEnd(this);"
+        onkeyup="submitIfChanged(this);"
+        placeholder="Please enter your name here..."
+        title="Origamicon Text"
+        type="text"
+        value="{{ name }}"
+      />
+      <input
+        title="Submit"
+        type="submit"
+      >
+    </form>
 
-  </body>
+  </main>
+
+  <aside>
+    Interested?
+    <br/>
+    Find out more on
+    <a href="https://maileablog.wordpress.com/portfolio/sha-1-origamicons/">
+      my blog
+    </a>
+    <br/>
+    or view the source code on
+    <a href="https://github.com/Mailea/origamicons">
+      GitHub
+    </a>
+  </aside>
+
+</body>
 </html>
