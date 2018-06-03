@@ -1,188 +1,148 @@
-@import url("https://fonts.googleapis.com/css?family=Overpass:200,300,400,400i,600,700,800&subset=latin-ext");
+@import url('https://fonts.googleapis.com/css?family=Overpass:200,300,600,700,800&subset=latin-ext');
 
-a, body, button, div, form, html, input, li, nav, ul {
-    background-color: transparent;
-    border: 0;
-    font-family: Overpass;
-    font-size: 14pt;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    text-decoration: none;
-    width: 100%;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+:root {
+  --origamicon-size: 250px;
+  --input-height: 45px;
+
+  /* color palette */
+  --bg-color: #f0f0f0;
+  --frame-color: #ffffff;
+  --fade-color: #dcdcdc;
+  --light-text-color: #5c5c5c;
+  --link-text-color: #2a2a2a;
 }
 
-input:focus {
-    border-color: transparent;
-    outline-style: none;
+html, body, div, section, form, input, button {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background-color: transparent;
+  border: 0;
+
+  font-family: 'Overpass', 'sans-serif';
+
+  transition: all 0.3s;
 }
 
 body {
-    background-color: #F1F0F0;
+  background-color: var(--bg-color);
 }
 
-.bottom-left {
-    bottom: 20px;
-    height: auto;
-    left: 20px;
-    position: fixed;
+main {
+  height: 550px;
+  width: auto;
+  position: relative;
+  top: calc((100% - 550px) * 0.4);
+
+  text-align: center;
 }
 
-.h-centered {
-    height: auto;
-    text-align: center;
+h1 {
+  margin-bottom: 2.5rem;
+
+  font-size: 2rem;
+  font-weight: 200;
 }
 
-.v-centered {
-    height: 400px;
-    margin-top: -280px;
-    position: relative;
-    top: 50%;
-    width: auto;
+/* ORIGAMICON ****************************************************************/
+
+#origamicon-frame {
+  height: var(--origamicon-size);
+  width: var(--origamicon-size);
+  margin: 0 auto 1.5rem auto;
+  padding: 20px;
+
+  background-color: var(--frame-color);
+  box-shadow: 0 6px 20px 0 var(--fade-color);
 }
 
-#image-border {
-    background-color: #faf9f9;
-    height: 290px;
-    margin: 0 auto;
-    width: 290px;
-    -webkit-box-shadow: 0 0 20px 0 #D1C9C7;
-    -moz-box-shadow: 0 0 20px 0 #D1C9C7;
-    box-shadow: 0 0 20px 0 #D1C9C7;
+img {
+  height: var(--origamicon-size);
+  width: var(--origamicon-size);
 }
 
-#image {
-    height: 250px;
-    position: relative;
-    top: 20px; /* image-border height - image height */
-    width: 250px;
+#download-link {
+  height: 120px;
+  width: 120px;
+  position: relative;
+  top: -75%;
+  display: none;
+  margin: 0 auto;
+
+  background-image: url('../img/download.svg');
+  background-size: 100%;
+
+  cursor: pointer;
 }
 
-#download-button {
-    height: 120px;
-    margin: 0 auto;
-    position: relative;
-    top: -60%;
-    width: 120px;
-    cursor: pointer;
-    display: none;
+#origamicon-frame:hover > img {
+  opacity: 0.3;
 }
 
-#image-border:hover > #image {
-    opacity: 0.3;
-    filter: alpha(opacity=30); /* For IE8 and earlier */
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+#origamicon-frame:hover > #download-link {
+  display: block;
 }
 
-#image-border:hover > #download-button {
-    display: block;
+/* FORM **********************************************************************/
+
+form {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin: 3.75rem auto 0 auto;
 }
 
-#logo {
-    height: 100px;
-    margin-bottom: 50px;
+form input[type=text] {
+  height: var(--input-height);
+  width: 400px;
+  margin-left: 45px;
 }
 
-#landing-form {
-    height: auto;
-    margin: 60px auto 0 auto;
-    width: 400px;
+input[type=text] {
+  box-sizing: content-box;
+
+  border-bottom: solid 2px var(--light-text-color) !important;
+
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
 }
 
-#landing-form input {
-    height: 45px;
-    width: 355px; /* form width - input height */
+input[type=text]:focus {
+  border-color: transparent;
+  outline-style: none;
 }
 
-#main-form {
-    height: auto;
-    margin: 60px auto 0 auto;
-    width: 470px;
+input[type=submit] {
+  height: var(--input-height);
+  width: var(--input-height);
+
+  background-image: url('../img/submit.svg');
+  background-size: 100%;
+
+  color: transparent;
+
+  cursor: pointer;
 }
 
-#main-form input {
-    height: 45px;
-    width: 425px; /* form width - input height */
+/* ABOUT ME ******************************************************************/
+
+.corner-text {
+  height: auto;
+  position: fixed;
+  left: 1.25rem;
+  bottom: 1.25rem;
+
+  color: var(--light-text-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 150%;
 }
 
-#landing-form > ul, #main-form > ul {
-    margin-left: 25px; /* fixes vertical offset caused by submit-button */
-}
-
-#landing-form > ul > li, #main-form > ul > li {
-    float: left;
-    list-style: none;
-    width: auto;
-}
-
-#landing-form input, #main-form input {
-    border-bottom: solid 2px #A0A3AC !important;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-}
-
-#landing-form button, #main-form button {
-    cursor: pointer;
-    display: none;
-    height: 45px;
-    width: 45px;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-}
-
-#about-text, #about-text a {
-    color: #918A86;
-    font-size: 9pt;
-    font-weight: 600;
-    line-height: 150%;
-    margin-top: 20px;
-}
-
-#about-text a {
-    color: #A0A3AC;
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-#avatar-text {
-    font-size: 23pt;
-    font-weight: 200;
-    margin-bottom: 40px;
-}
-
-#try-again-text {
-    color: #918A86;
-    font-size: 9pt;
-    font-style: italic;
-    font-weight: 400;
-    margin-top: 25px;
-}
-
-#input-text {
-    font-size: 20pt;
-    font-weight: 800;
-    text-align: center;
-}
-
-#instruction-text {
-    font-size: 14pt;
-    font-weight: 300;
-    margin-bottom: 120px;
-}
-
-#welcome-text {
-    font-size: 37pt;
-    font-weight: 800;
-    margin-bottom: 40px;
-    text-transform: uppercase;
+.corner-text a {
+  color: var(--link-text-color);
+  font-weight: 700;
+  text-decoration: underline;
 }

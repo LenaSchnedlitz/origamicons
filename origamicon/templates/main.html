@@ -1,28 +1,66 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="h-centered" id="avatar-text">{{ name }}</div>
-    <div class="h-centered" id="image-border">
-        <img alt="" id="image" src="data:;base64, {{ image }}"/>
-        <a download="avatar.png" href="data:;base64, {{ image }}" id="download-button">
-            <img alt=""
-                 src="{{ url_for('static', filename='img/download.png') }}"/>
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>
+      SHA-1 Origamicons
+    </title>
+    <link
+        rel='shortcut icon'
+        href='{{ url_for('static', filename='img/favicon.ico') }}'
+    >
+    <link
+        href='{{ url_for('static', filename='css/style.css') }}'
+        rel='stylesheet'
+        type='text/css'
+    >
+  </head>
+  <body onload='document.activeElement.onfocus();'>
+
+    <main>
+      <h1>
+        {{ name }}
+      </h1>
+      <section id='origamicon-frame'
+      >
+        <img
+            alt='Origamicon for {{ name }}'
+            src='data:;base64, {{ image }}'
+        />
+        <a
+            id='download-link'
+            download='origamicon.png'
+            href='data:;base64, {{ image }}'
+        >
         </a>
-    </div>
-    <div class="h-centered" id="try-again-text">
-        Don't like this avatar? Consider trying a similar name.
-    </div>
-    <form method="post" id="main-form">
-        <ul>
-            <li>
-                <input autocomplete="off" autofocus id="input-text" name="text"
-                       type="text">
-            </li>
-            <li>
-                <button type="submit" id="submit-button" value="">
-                    <img alt=""
-                         src="{{ url_for('static', filename='img/submit.png') }}"/>
-                </button>
-            </li>
-        </ul>
-    </form>
-{% endblock %}
+      </section>
+      <form method='post'>
+        <input
+            autocomplete='off'
+            autofocus
+            onfocus='this.value=""; this.value="{{ name }}";'
+            name='text'
+            title='origamicon-text'
+            type='text'
+            value="{{ name }}"
+        />
+        <input type='submit'>
+      </form>
+    </main>
+
+    <section class='corner-text'>
+      Interested?
+      <br/>
+      Find out more on
+      <a href='https://maileablog.wordpress.com/portfolio/sha-1-origamicons/'>
+        my blog
+      </a>
+      <br/>
+      or view the source code on
+      <a href='https://github.com/Mailea/individual-sha1-origamicons'>
+        GitHub
+      </a>
+    </section>
+
+  </body>
+</html>

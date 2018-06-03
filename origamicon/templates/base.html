@@ -1,28 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <title>SHA-1 Origamicons</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-    <link href="{{ url_for('static', filename='css/style.css') }}"
-          rel="stylesheet" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <meta charset='UTF-8'>
+  <title>
+    SHA-1 Origamicons
+  </title>
+  <link rel='shortcut icon'
+        href='{{ url_for('static', filename='img/favicon.ico') }}'
+  >
+  <link href='{{ url_for('static', filename='css/style.css') }}'
+        rel='stylesheet'
+        type='text/css'
+  >
 </head>
 <body>
-<div class="v-centered">{% block content %}{% endblock %}</div>
-<div class="bottom-left" id="about-text">
-    Interested?<br>
-    Find out more on
-    <a href="https://maileablog.wordpress.com/portfolio/sha-1-origamicons/">
-        my blog
-    </a><br>
-    or view the source code on
-    <a href="https://github.com/Mailea/individual-sha1-origamicons">GitHub</a>
-</div>
-<script>
-    $(function () {
-        $('#submit-button').fadeIn();
-    });
-</script>
+<main onload='console.log("error");'>
+  {% block content %}{% endblock %}
+</main>
+<section class='corner-text'>
+  Interested?
+  <br/>
+  Find out more on
+  <a href='https://maileablog.wordpress.com/portfolio/sha-1-origamicons/'>
+    my blog
+  </a>
+  <br/>
+  or view the source code on
+  <a href='https://github.com/Mailea/individual-sha1-origamicons'>
+    GitHub
+  </a>
+</section>
 </body>
 </html>
