@@ -40,10 +40,13 @@ getOrigamiconParams = (origamiconText) => {
   }
 };
 
-show = (origamiconText) => {
+showOrigamicon = (origamiconText) => {
   /*
-  Shows an origamicon image for the given string
+  Displays the origamicon for the given text.
+
+  If no text is given, renders the origamicon logo instead.
    */
+
   const data = origamiconText.trim() ?
     getOrigamiconParams(origamiconText) :
     getLogoParams();
@@ -58,4 +61,18 @@ show = (origamiconText) => {
   const a = parent.getElementsByTagName('a')[0];
   a.download = data.aDownload;
   a.href = data.aHref;
+};
+
+refreshOrigamicon = (input) => {
+  /*
+  Renders a new origamicon if the input value does not change for 0.6s.
+   */
+  const old_value = input.value;
+  setTimeout(() => {
+      const new_value = input.value;
+      if (old_value === new_value) {
+        showOrigamicon(new_value);
+      }
+    }, 600
+  );
 };
