@@ -106,6 +106,7 @@ h1 {
   border-radius: 50%;
   box-sizing: border-box;
 
+  background-color: var(--bg-color);
   border: solid 13px var(--bg-color);
 }
 
