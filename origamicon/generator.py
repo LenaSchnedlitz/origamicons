@@ -92,12 +92,12 @@ def new_image():
 
     for y in range(PROCESSING_SIZE):
         for x in range(PROCESSING_SIZE):
-            # Find the distance to the center_color
+            # Find distance from center_color
             distance = math.sqrt(
                 (x - PROCESSING_SIZE / 2) ** 2 +
                 (y - PROCESSING_SIZE / 2) ** 2
             )
-            # Make it on a scale from 0 to 1
+            # Use scale from 0 to 1
             distance = distance / (math.sqrt(2) * PROCESSING_SIZE / 2)
 
             # Calculate value
@@ -106,7 +106,7 @@ def new_image():
             # Place the pixel
             img.putpixel((x, y), tuple([value] * 3))
 
-    # resize to make edges smoother
+    # Resize to make edges smoother
     img = img.resize([scale_up(PROCESSING_SIZE)] * 2, Image.ANTIALIAS)
     return img
 
