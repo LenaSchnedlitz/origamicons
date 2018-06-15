@@ -1,19 +1,19 @@
 // REFRESH FIXES //////////////////////////////////////////////////////////////
 
+/**
+ * Compensates for missing onfocus call when using autofocus
+ */
 callOnFocus = () => {
-  /*
-  Compensates for missing onfocus call when using autofocus
-   */
   const autofocused = document.activeElement;
   if (autofocused.onfocus) {
     autofocused.onfocus();
   }
 };
 
+/**
+ * Refreshes input value to fix caret misplacement
+ */
 moveCaretToInputEnd = (input) => {
-  /*
-  Refreshes input value to fix caret misplacement
-   */
   const value = input.value;
   input.value = '';
   input.value = value;
@@ -40,12 +40,12 @@ getOrigamiconParams = (origamiconText) => {
   }
 };
 
+/**
+ * Displays the origamicon for the given text.
+ *
+ * If no text is given, renders the origamicon logo instead.
+ */
 showOrigamicon = (origamiconText) => {
-  /*
-  Displays the origamicon for the given text.
-
-  If no text is given, renders the origamicon logo instead.
-   */
 
   const data = origamiconText.trim() ?
     getOrigamiconParams(origamiconText) :
@@ -63,10 +63,10 @@ showOrigamicon = (origamiconText) => {
   a.href = data.aHref;
 };
 
+/**
+ * Renders a new origamicon if the input value does not change for 0.6s.
+ */
 refreshOrigamicon = (input) => {
-  /*
-  Renders a new origamicon if the input value does not change for 0.6s.
-   */
   const old_value = input.value;
   setTimeout(() => {
       const new_value = input.value;
