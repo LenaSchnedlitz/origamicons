@@ -51,7 +51,7 @@ showOrigamicon = (origamiconText) => {
     getOrigamiconParams(origamiconText) :
     getLogoParams();
 
-  const parent = document.getElementById('container');
+  const parent = document.getElementById('picture');
   parent.className = data.parentClass;
 
   const image = parent.getElementsByTagName('img')[0];

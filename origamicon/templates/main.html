@@ -3,6 +3,7 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
   <title>Origamicons</title>
   <link
     href="{{ url_for('static', filename='img/fav.ico') }}"
@@ -18,64 +19,52 @@
 </head>
 <body onload="callOnFocus();">
 
-  <main>
+<main>
+  <h1>Origamicons</h1>
 
-    <h1>Origamicons</h1>
-
-    {% if image %}
-      <section id="container" class="origamicon">
-        <img
-          alt="Origamicon for {{ name }}"
-          src="{{ image }}"
-        />
-        <a
-          download="origamicon_{{ name }}.png"
-          href="{{ image }}"
-        ></a>
-      </section>
-    {% else %}
-      <section id="container" class="logo">
-        <img
-          alt="Logo"
-          src="{{ url_for('static', filename='img/logo_origamicon.png') }}"
-        />
-        <a></a>
-      </section>
-    {% endif %}
-
-    <form method="post">
-      <input
-        autocomplete="off"
-        autofocus
-        name="origamicon-text"
-        onfocus="moveCaretToInputEnd(this);"
-        onkeyup="refreshOrigamicon(this);"
-        placeholder="Please enter your name here..."
-        title="Origamicon Text"
-        type="text"
-        value="{{ name }}"
+  {% if image %}
+    <section id="picture" class="origamicon">
+      <img
+        alt="Origamicon for {{ name }}"
+        src="{{ image }}"
       />
-      <input
-        title="Submit"
-        type="submit"
-      >
-    </form>
+      <a
+        download="origamicon_{{ name }}.png"
+        href="{{ image }}"
+      ></a>
+    </section>
+  {% else %}
+    <section id="container" class="logo">
+      <img
+        alt="Logo"
+        src="{{ url_for('static', filename='img/logo_origamicon.png') }}"
+      />
+      <a></a>
+    </section>
+  {% endif %}
 
-  </main>
+  <form method="post">
+    <input
+      autocomplete="off"
+      autofocus
+      name="origamicon-text"
+      onfocus="moveCaretToInputEnd(this);"
+      onkeyup="refreshOrigamicon(this);"
+      placeholder="Please enter your name here..."
+      title="Origamicon Text"
+      type="text"
+      value="{{ name }}"
+    />
+    <input
+      title="Submit"
+      type="submit"
+    >
+  </form>
+</main>
 
-  <aside>
-    Interested?
-    <br/>
-    Find out more on
-    <a href="https://maileablog.wordpress.com/portfolio/sha-1-origamicons/">
-      my blog
-    </a>
-    <br/>
-    or view the source code on
-    <a href="https://github.com/Mailea/origamicons">
-      GitHub
-    </a>
-  </aside>
+<aside>
+  Interested? <strong>Fork me on <a href="https://github.com/LenaSchnedlitz/origamicons">GitHub</a></strong>
+</aside>
 
 </body>
 </html>
