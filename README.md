@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="https://github.com/Mailea/origamicons/blob/master/origamicon/static/img/logo.png"/>
-</p>
+<div align="center">
+  <img src="origamicon/static/img/logo.png"/>
+</div>
 
 
 # Origamicons
