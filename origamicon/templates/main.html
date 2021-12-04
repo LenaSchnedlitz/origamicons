@@ -1,70 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-  <meta charset="UTF-8">
-  <meta content='width=device-width,initial-scale=1.0' name='viewport'>
-  <title>Origamicons</title>
-  <link
-    href="{{ url_for('static', filename='img/fav.ico') }}"
-    rel="shortcut icon"
-  />
-  <link
-    href="{{ url_for('static', filename='css/style.css') }}"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <script src="../static/js/scripts.js"></script>
-
-</head>
-<body onload="callOnFocus();">
-
-<main>
-  <h1>Origamicons</h1>
-
-  {% if image %}
-    <section id="picture" class="origamicon">
-      <img
-        alt="Origamicon for {{ name }}"
-        src="{{ image }}"
-      />
-      <a
-        download="origamicon_{{ name }}.png"
-        href="{{ image }}"
-      ></a>
-    </section>
-  {% else %}
-    <section id="picture" class="logo">
-      <img
-        alt="Logo"
-        src="{{ url_for('static', filename='img/logo_origamicon.png') }}"
-      />
-      <a></a>
-    </section>
-  {% endif %}
-
-  <form method="post">
-    <input
-      autocomplete="off"
-      autofocus
-      name="origamicon-text"
-      onfocus="moveCaretToInputEnd(this);"
-      onkeyup="refreshOrigamicon(this);"
-      placeholder="Enter your name here..."
-      title="Origamicon Text"
-      type="text"
-      value="{{ name }}"
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <title>Origamicons</title>
+    <link
+      href="{{ url_for('static', filename='img/fav.ico') }}"
+      rel="shortcut icon"
     />
-    <input
-      title="Submit"
-      type="submit"
-    >
-  </form>
-</main>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="../static/js/scripts.js"></script>
+  </head>
+  <body onload="callOnFocus();">
+    <main>
+      <h1>Origamicons</h1>
 
-<aside>
-  Interested? <strong>Fork me on <a href="https://github.com/LenaSchnedlitz/origamicons">GitHub</a></strong>
-</aside>
+      {% if image %}
+      <section id="picture" class="origamicon">
+        <img alt="Origamicon for {{ name }}" src="{{ image }}" />
+        <a download="origamicon_{{ name }}.png" href="{{ image }}"></a>
+      </section>
+      {% else %}
+      <section id="picture" class="logo">
+        <img
+          alt="Logo"
+          src="{{ url_for('static', filename='img/logo_origamicon.png') }}"
+        />
+        <a></a>
+      </section>
+      {% endif %}
 
-</body>
+      <form method="post">
+        <input
+          autocomplete="off"
+          autofocus
+          name="origamicon-text"
+          onfocus="moveCaretToInputEnd(this);"
+          onkeyup="refreshOrigamicon(this);"
+          placeholder="Enter your name here..."
+          title="Origamicon Text"
+          type="text"
+          value="{{ name }}"
+        />
+        <input title="Submit" type="submit" />
+      </form>
+    </main>
+
+    <aside>
+      Interested?
+      <strong
+        >Fork me on
+        <a href="https://github.com/LenaSchnedlitz/origamicons"
+          >GitHub</a
+        ></strong
+      >
+    </aside>
+  </body>
 </html>
