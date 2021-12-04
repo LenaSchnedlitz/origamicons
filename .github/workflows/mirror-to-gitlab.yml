@@ -1,0 +1,25 @@
+name: Mirror to GitLab
+
+on: [push, delete]
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone
+        run: git clone --mirror $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
+
+      - name: Authenticate
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.GITLAB_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          sudo chmod 600 ~/.ssh/id_rsa
+          # echo gitlab.com > ~/.ssh/known_hosts
+          ssh-keyscan -t rsa gitlab.com >> ~/.ssh/known_hosts
+
+      - name: Push to GitLab
+        run: |
+          echo git@gitlab.com:$GITHUB_REPOSITORY.git
+          cd ${{ github.event.repository.name }}.git
+          git push --mirror git@gitlab.com:$GITHUB_REPOSITORY.git
